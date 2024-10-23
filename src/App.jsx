@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome />} index={true} />
           <Route path="/introduction" element={<Introduction />} />
-          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/quiz/:category" element={<Quiz />} />
           <Route path="/result" element={<Result />} />
         </Routes>
       </div>

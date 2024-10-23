@@ -15,7 +15,7 @@ const PopoverComponent = () => {
       <Popover>
         <PopoverTrigger>
           <div>
-            <button className="flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-2xl rounded-xl text-[25px] font-bold px-5 py-2">
+            <button className="flex items-center gap-2 bg-[#E62E2D] shadow-2xl rounded-xl text-[25px] font-bold px-5 py-2">
               Share
               <FaShareAlt />
             </button>
