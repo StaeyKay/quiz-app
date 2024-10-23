@@ -52,6 +52,12 @@ const Quiz = () => {
   // Function to handle answer selection
   const handleOptionClick = (selectedOption) => {
     // Check if selected option is correct
+    console.log("selectedOption:", selectedOption);
+    console.log("currentQuestion:", currentQuestion);
+    console.log(
+      "questionList[currentQuestion].answer:",
+      questionList[currentQuestion].answer
+    );
     if (selectedOption === questionList[currentQuestion].answer) {
       // Use a function to safely update the score state based on the previous value
       setScore((prevScore) => prevScore + 1);
@@ -93,7 +99,7 @@ const Quiz = () => {
   return (
     <div className="bg-[#F8FAFC] space-y-8 md:p-48 p-10 text-white font-bold md:text-[35px] text-[20px] overflow-hidden">
       <div className="md:p-[60px] p-[30px] shadow-2xl bg-white rounded-3xl">
-        {!quizCompleted && (
+        {!quizCompleted && questionList.length > 0 && (
           <div className="space-y-5">
             <h2 className="text-black">
               {questionList[currentQuestion].question}
@@ -112,7 +118,7 @@ const Quiz = () => {
           </div>
         )}
       </div>
-      {!quizCompleted && (
+      {!quizCompleted && questionList.length > 0 && (
         <CountdownProgressBar
           duration={10}
           key={timerKey} // Reset timer for each question
