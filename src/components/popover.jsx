@@ -4,6 +4,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  EmailIcon,
+  EmailShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  TwitterShareButton,
+} from "react-share";
 import { FaFacebook } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
@@ -15,14 +25,14 @@ const PopoverComponent = () => {
       <Popover>
         <PopoverTrigger>
           <div>
-            <button className="flex items-center gap-2 bg-[#E62E2D] shadow-2xl rounded-xl text-[25px] font-bold px-5 py-2">
+            <button className="flex items-center gap-1 bg-[#E62E2D] shadow-2xl rounded-xl text-[15px] md:text-[25px] font-bold px-5 py-2">
               Share
               <FaShareAlt />
             </button>
           </div>
         </PopoverTrigger>
         <PopoverContent>
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <a
               href="https://www.facebook.com/sharer.php?u=https://example.com"
               target="_blank"
@@ -45,6 +55,30 @@ const PopoverComponent = () => {
             >
               <FaWhatsapp size={25} />
             </a>
+          </div> */}
+          <div className="flex justify-between">
+            <FacebookShareButton
+              url={"http://localhost:5173/result"}
+              title={"Check out my results from the GraphiFun quiz!"}
+              hashtag="#react"
+            >
+              <FacebookIcon />
+            </FacebookShareButton>
+            <WhatsappShareButton
+              url={"http://localhost:5173/result"}
+              title={"Check out my results from the GraphiFun quiz!"}
+            >
+              <WhatsappIcon />
+            </WhatsappShareButton>
+            <TwitterShareButton
+              url={"http://localhost:5173/result"}
+              title={"Check out my results from the GraphiFun quiz!"}
+            >
+              <TwitterIcon />
+            </TwitterShareButton>
+            <EmailShareButton url={"http://localhost:5173/result"}>
+              <EmailIcon />
+            </EmailShareButton>
           </div>
         </PopoverContent>
       </Popover>

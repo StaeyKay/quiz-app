@@ -97,7 +97,7 @@ const Quiz = () => {
   }, []);
 
   return (
-    <div className="bg-[#F8FAFC] space-y-8 md:p-48 p-10 text-white font-bold md:text-[35px] text-[20px] overflow-hidden">
+    <div className="bg-[#F8FAFC] flex flex-col items-center space-y-8 md:p-48 p-10 text-white font-bold md:text-[35px] text-[20px] overflow-hidden min-h-screen">
       <div className="md:p-[60px] p-[30px] shadow-2xl bg-white rounded-3xl">
         {!quizCompleted && questionList.length > 0 && (
           <div className="space-y-5">

@@ -21,38 +21,42 @@ const Introduction = () => {
   };
 
   return (
-    <div className="space-y-8 bg-[#F8FAFC] md:p-48 p-10 text-gray-900 font-bold md:text-[35px] text-[20px] overflow-hidden">
-      <div className="space-y-5 md:p-[60px] p-[30px] bg-white shadow-2xl rounded-3xl">
-        <h1>
-          Welcome to the fun quiz,{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-green-700">
-            {name.toUpperCase()}
-          </span>
-        </h1>
-        <form action="">
-          <label for="category">Choose a category and proceed:</label>
-          <select
-            onChange={(e) => setCategory(e.target.value)}
-            id="category"
-            name=""
-            form=""
-            value={category}
+    <div className="max-h-screen flex items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-gray-800 font-bold md:text-[35px] text-[20px] overflow-hidden w-full">
+      <div className="md:p-[60px] p-[30px] bg-white shadow-2xl rounded-3xl max-w-[90vw]">
+        <div className="space-y-5">
+          <h1>
+            Welcome to the fun quiz,{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-green-700">
+              {name.toUpperCase()}
+            </span>
+          </h1>
+          <form action="">
+            <label htmlFor="category">Choose a category and proceed:</label>
+            <select
+              onChange={(e) => setCategory(e.target.value)}
+              id="category"
+              value={category}
+              className="mt-2 w-full p-2 border rounded-md"
+            >
+              <option value="" disabled selected hidden>
+                -- Select a category --
+              </option>
+              <option value="politics">Politics</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="social studies">Social Studies</option>
+            </select>
+          </form>
+          <p>
+            NB: Once you click on start, the first question is displayed and the
+            timer begins. You have 10 secs to answer each question.
+          </p>
+          <button
+            onClick={handleContinue}
+            className="bg-[#E62E2D] w-[130px] text-white shadow-2xl font-bold px-5 py-2 rounded-lg"
           >
-            <option value="politics">Politics</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="social studies">Social Studies</option>
-          </select>
-        </form>
-        <p>
-          NB: Once you click on start, the first question is displayed and the
-          timer begins. You have 10 secs to answer each question.
-        </p>
-        <button
-          onClick={handleContinue}
-          className="bg-[#E62E2D] text-white shadow-2xl font-bold px-5 rounded-lg"
-        >
-          Start
-        </button>
+            Start
+          </button>
+        </div>
       </div>
     </div>
   );

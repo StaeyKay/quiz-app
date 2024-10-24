@@ -21,18 +21,11 @@ const Result = () => {
   };
 
   return (
-    <div className="space-y-8 md:p-48 bg-[#F8FAFC] p-10 text-gray-800 font-bold md:text-[35px] text-[20px] overflow-hidden">
+    <div className="h-screen space-y-8 md:p-48 bg-[#F8FAFC] p-10 text-gray-800 font-bold md:text-[35px] text-[20px] overflow-hidden w-full">
       <div className="space-y-5 md:p-[60px] p-[30px] bg-white shadow-2xl rounded-3xl">
         <div className="space-y-10">
           <div>
             <h3>Quiz Completed!</h3>
-            {/* <p>
-              Well done,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-green-700">
-                {nickname}
-              </span>
-              !
-            </p> */}
             <p>
               Your score is {score}/{totalQuestions} ({percentageScore}%).
             </p>
@@ -48,15 +41,17 @@ const Result = () => {
               </p>
             )}
           </div>
-          <div className="flex gap-20 justify-center text-white">
+          <div className="flex flex-col md:flex-row md:gap-20 gap-5 justify-center text-white">
             <button
               onClick={handleRetakeQuiz}
-              className="flex items-center gap-3 bg-[#E62E2D] shadow-2xl rounded-xl text-[25px] font-bold px-5 py-2"
+              className="flex items-center justify-center gap-3 bg-[#E62E2D] shadow-2xl rounded-xl text-[15px] md:text-[25px] font-bold px-4 py-3 w-full md:w-auto"
             >
               Retake Quiz
               <TfiReload />
             </button>
-            <PopoverComponent />
+            <div className="w-full flex justify-center md:w-auto">
+              <PopoverComponent />
+            </div>
           </div>
         </div>
       </div>
