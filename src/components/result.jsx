@@ -33,11 +33,13 @@ const Result = () => {
             {/* Conditional message based on percentage */}
             {percentageScore >= 60 ? (
               <p className="text-green-600 text-[25px]">
-                🎉 Congratulations, {nickname}! Great job, keep it up! 🎉
+                🎉 Congratulations, {nickname.toUpperCase()}! Great job, keep it
+                up! 🎉
               </p>
             ) : (
               <p className="text-red-600 text-[25px]">
-                👎 Don’t worry, {nickname}, try again! You can do better! 👎
+                👎 Don’t worry, {nickname.toUpperCase()}, try again! You can do
+                better! 👎
               </p>
             )}
           </div>
