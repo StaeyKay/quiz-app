@@ -17,6 +17,10 @@ const Introduction = () => {
   }, [navigate]);
 
   const handleContinue = () => {
+    if (!category) {
+      alert("Please select a category before continuing.");
+      return;
+    }
     navigate(`/quiz/${category}`);
   };
 
@@ -25,7 +29,7 @@ const Introduction = () => {
       <div className="md:p-[60px] p-[30px] bg-white shadow-2xl rounded-3xl max-w-[90vw]">
         <div className="space-y-5">
           <h1>
-            Welcome to the fun quiz,{" "}
+            Welcome to the Graphifun quiz,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-green-700">
               {name.toUpperCase()}
             </span>
@@ -37,13 +41,15 @@ const Introduction = () => {
               id="category"
               value={category}
               className="mt-2 w-full p-2 border rounded-md"
+              required
             >
               <option value="" disabled selected hidden>
                 -- Select a category --
               </option>
-              <option value="politics">Politics</option>
               <option value="entertainment">Entertainment</option>
               <option value="social studies">Social Studies</option>
+              <option value="integrated science">Integrated Science</option>
+              <option value="english language">English Language</option>
             </select>
           </form>
           <p>

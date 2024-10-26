@@ -17,7 +17,7 @@ const Result = () => {
   const percentageScore = ((score / totalQuestions) * 100).toFixed(2); // 2 decimal places
 
   const handleRetakeQuiz = () => {
-    navigate("/"); // Redirect to the welcome page to retake the quiz
+    navigate("/introduction"); // Redirect to the welcome page to retake the quiz
   };
 
   return (
