@@ -11,29 +11,16 @@ const Quiz = () => {
   const [questionList, setQuestionList] = useState([]);
 
   const params = useParams();
-  console.log(params);
   const category = params.category;
   const navigate = useNavigate();
 
-  // Function to handle answer selection
   const handleOptionClick = (selectedOption) => {
-    // Check if selected option is correct
-    console.log("selectedOption:", selectedOption);
-    console.log("currentQuestion:", currentQuestion);
-    console.log(
-      "questionList[currentQuestion].answer:",
-      questionList[currentQuestion].answer
-    );
     if (selectedOption === questionList[currentQuestion].answer) {
-      // Use a function to safely update the score state based on the previous value
       setScore((prevScore) => prevScore + 1);
     }
-
-    // Move to the next question or complete the quiz after state is updated
     handleNextQuestion();
   };
 
-  // Function to handle moving to the next question or completing the quiz
   const handleNextQuestion = () => {
     if (currentQuestion < questionList.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -43,7 +30,6 @@ const Quiz = () => {
     }
   };
 
-  // Use effect to navigate after the quiz is completed
   useEffect(() => {
     if (quizCompleted) {
       navigate("/result", {
@@ -52,12 +38,10 @@ const Quiz = () => {
     }
   }, [quizCompleted, score, navigate]);
 
-  // useEffect to fetch questions from the database
   useEffect(() => {
     const fetchQuestions = async () => {
       const questionList = await getQuestions(category);
       setQuestionList(questionList);
-      console.log("questionList", questionList);
     };
     fetchQuestions();
   }, []);
@@ -67,6 +51,10 @@ const Quiz = () => {
       <div className="md:p-[60px] p-[30px] shadow-2xl bg-white rounded-3xl">
         {!quizCompleted && questionList.length > 0 && (
           <div className="space-y-5">
+            {/* Display the current question number */}
+            <div className="text-black text-center">
+              Question {currentQuestion + 1}/{questionList.length}
+            </div>
             <h2 className="text-black">
               {questionList[currentQuestion].question}
             </h2>
