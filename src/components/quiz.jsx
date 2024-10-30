@@ -4,40 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getQuestions } from "@/utils";
 
 const Quiz = () => {
-  const questions = [
-    {
-      question: "In which year did Ghana gain independence?",
-      options: ["1956", "1957", "1958", "1959"],
-      answer: 1,
-    },
-    {
-      question: "What is the capital of France?",
-      options: ["Paris", "London", "Rome", "Venice"],
-      answer: 0,
-    },
-    {
-      question: "Which of the following is the highest mountain in the world?",
-      options: ["Kilimanjaro", "Everest", "Elbrus", "Denai"],
-      answer: 1,
-    },
-    {
-      question:
-        "How many years does an elected president in Ghana rule before the next election?",
-      options: ["3", "2", "4", "5"],
-      answer: 2,
-    },
-    {
-      question: "How many continents are there in the world?",
-      options: ["5", "6", "7", "8"],
-      answer: 2,
-    },
-    {
-      question: "Which country is the largest?",
-      options: ["USA", "Russia", "Africa", "India"],
-      answer: 1,
-    },
-  ];
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);

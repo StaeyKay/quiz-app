@@ -23,23 +23,31 @@ const CountdownProgressBar = ({ duration, onTimeUp }) => {
 
   return (
     <div
-      style={{
-        borderRadius: "25px",
-        width: "100%",
-        height: "15px",
-        backgroundColor: "#ddd",
-      }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <div
         style={{
-          width: `${progress}%`,
-          height: "100%",
-          backgroundColor: "green",
-          backgroundImage: "linear-gradient(to right, red, yellow)",
           borderRadius: "25px",
-          transition: "width 1s linear",
+          width: "100%",
+          height: "15px",
+          backgroundColor: "#ddd",
         }}
-      ></div>
+      >
+        <div
+          style={{
+            width: `${progress}%`,
+            height: "100%",
+            backgroundColor: "green",
+            backgroundImage: "linear-gradient(to right, red, yellow)",
+            borderRadius: "25px",
+            transition: "width 1s linear",
+          }}
+        ></div>
+      </div>
+      {/* Display the countdown time beneath the progress bar */}
+      <div style={{ marginTop: "8px", fontSize: "18px", color: "#333" }}>
+        Time Left: {timeLeft}s
+      </div>
     </div>
   );
 };
