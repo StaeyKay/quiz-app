@@ -21,7 +21,7 @@ const Introduction = () => {
       alert("Please select a category before continuing.");
       return;
     }
-    navigate(`/quiz/${category}`);
+    navigate(`/quiz/${category}`, { state: { category } }); // Pass the category state
   };
 
   return (

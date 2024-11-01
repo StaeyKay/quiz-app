@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CountdownProgressBar from "./countDown";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getQuestions } from "@/utils";
 
 const Quiz = () => {
@@ -11,8 +11,9 @@ const Quiz = () => {
   const [questionList, setQuestionList] = useState([]);
 
   const params = useParams();
-  const category = params.category;
   const navigate = useNavigate();
+  const location = useLocation(); // Get location object
+  const category = params.category || location.state.category; // Retrieve category from state
 
   const handleOptionClick = (selectedOption) => {
     if (selectedOption === questionList[currentQuestion].answer) {
@@ -44,11 +45,15 @@ const Quiz = () => {
       setQuestionList(questionList);
     };
     fetchQuestions();
-  }, []);
+  }, [category]); // Fetch questions based on the category
 
   return (
     <div className="bg-[#F8FAFC] flex flex-col items-center space-y-8 md:p-48 p-10 text-white font-bold md:text-[35px] text-[20px] overflow-y-auto max-h-screen">
-      <div className="md:p-[60px] p-[30px] shadow-2xl bg-white rounded-3xl">
+      {/* Display the selected category */}
+      <div className="text-black text-center font-semibold">
+        Category: {category.charAt(0).toUpperCase() + category.slice(1)}
+      </div>
+      <div className="md:p-[60px] p-[30px] shadow-2xl bg-white rounded-lg">
         {!quizCompleted && questionList.length > 0 && (
           <div className="space-y-5">
             {/* Display the current question number */}
