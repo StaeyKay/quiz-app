@@ -50,6 +50,7 @@ const Introduction = () => {
               <option value="social studies">Social Studies</option>
               <option value="integrated science">Integrated Science</option>
               <option value="english language">English Language</option>
+              <option value="new">New</option>
             </select>
           </form>
           <p>

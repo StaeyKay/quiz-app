@@ -8,6 +8,5 @@ export async function getQuestions(category) {
   });
 
   const response = await questionsResponse.json();
-  console.log("response", response);
   return response;
 }

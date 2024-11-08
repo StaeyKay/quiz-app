@@ -21,7 +21,7 @@ const Result = () => {
   };
 
   return (
-    <div className="h-screen space-y-8 md:p-48 bg-[#F8FAFC] p-10 text-gray-800 font-bold md:text-[35px] text-[20px] overflow-hidden w-full">
+    <div className="flex justify-center items-center h-screen space-y-8 md:p-20 bg-[#F8FAFC] p-10 text-gray-800 font-bold md:text-[35px] text-[20px] overflow-hidden w-full">
       <div className="space-y-5 md:p-[60px] p-[30px] bg-white shadow-2xl rounded-3xl">
         <div className="space-y-10">
           <div>
