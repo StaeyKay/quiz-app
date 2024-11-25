@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoMdArrowDropright } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
 const Welcome = () => {
@@ -14,31 +15,46 @@ const Welcome = () => {
   };
 
   return (
-    <div className="max-h-screen flex items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-gray-800 font-bold md:text-[35px] text-[20px] overflow-hidden w-full">
-      <div className="space-y-5 md:p-[60px] p-[30px] bg-white shadow-2xl rounded-3xl">
-        <h1 className="text-center">Welcome to Graphifun Quiz</h1>
+    <div className="max-h-screen flex items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">
+      <div className="md:p-[60px] p-[30px] bg-gradient-to-r from-[#921919] to-[#e62e2d] shadow-2xl rounded-3xl max-w-[90vw]">
+        <div className="flex flex-col text-[35px]">
+          <span className="font-normal">Welcome to</span>
+          <span className="flex font-bold">
+            Graphic<span className="text-[#f6d807]">f</span>
+            <span className="text-[#78f807]">u</span>
+            <span className="text-[#71e2fa]">n &nbsp;</span> Quiz
+          </span>
+        </div>
+
         <form onSubmit={saveForm} className="space-y-5">
-          <label htmlFor="" className="block text-center">
+          <label htmlFor="" className="block">
             Kindly enter a nickname to proceed
           </label>
-          <div className="flex flex-col md:flex-row gap-5 justify-center">
+          <div className="flex flex-col gap-5 justify-center">
             <input
-              className="text-violet-900 rounded-lg p-3 w-full md:w-auto md:flex-grow"
+              className="text-violet-900 rounded-full p-3 w-full md:w-auto md:flex-grow"
               type="text"
               placeholder="Enter a nickname"
               onChange={(e) => setName(e.target.value)}
               value={name}
               required
             />
-            <button
-              type="submit"
-              className="bg-[#E62E2D] shadow-2xl text-white font-bold px-5 py-3 rounded-lg w-full md:w-auto"
-            >
-              Continue
-            </button>
+            <div className="flex justify-center items-center gap-2">
+              <p className="text-center flex items-center">
+                <IoMdArrowDropright size={25} className="text-[#ee5156]" />
+                Click continue to read the instructions
+                <IoMdArrowDropright size={25} className="text-[#ee5156]" />
+                <IoMdArrowDropright size={25} className="text-[#ee5156]" />
+              </p>
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-[#a51e1d] to-[#600d0d] border-[2px] border-white text-white font-bold px-5 py-3 rounded-full md:w-auto"
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </form>
-        <p className="text-center">Click continue to read the instructions</p>
       </div>
     </div>
   );

@@ -54,11 +54,11 @@ const Quiz = () => {
   }, [category]);
 
   return (
-    <div className="bg-[#F8FAFC] flex flex-col justify-center items-center space-y-8 md:p-32 p-14 text-white font-bold md:text-[35px] text-[20px] overflow-y-auto max-h-screen">
-      <div className="text-black text-center font-semibold pt-20">
+    <div className="flex flex-col justify-center items-center space-y-8 text-white font-bold md:text-[35px] text-[20px] overflow-y-auto max-h-screen">
+      <div className="text-black text-center font-semibold pt-20 bg-white">
         Category: {category.charAt(0).toUpperCase() + category.slice(1)}
       </div>
-      <div className="md:p-[60px] p-[30px] shadow-2xl bg-white rounded-lg">
+      <div className="md:p-[60px] bg-gradient-to-r from-[#921919] to-[#e62e2d] p-[30px] shadow-2xl w-full">
         {loading ? (
           <div className="flex justify-center items-center">
             <ColorRing
@@ -75,20 +75,20 @@ const Quiz = () => {
           !quizCompleted &&
           questionList.length > 0 && (
             <div className="space-y-5">
-              <div className="text-black text-center">
+              <div className="text-white text-center">
                 Question {currentQuestion + 1}/{questionList.length}
               </div>
-              <h2 className="text-black">
+              <h2 className="text-[#f6d807] text-center">
                 {questionList[currentQuestion].question}
               </h2>
               <div className="grid grid-cols-2 gap-8">
                 {questionList[currentQuestion].options.map((option, index) => (
                   <div
                     key={index}
-                    onClick={() => handleOptionClick(index)}
-                    className="cursor-pointer bg-[#E62E2D] rounded-lg shadow-2xl p-3 flex justify-center items-center"
+                    onClick={() => handleOptionClick(option)}
+                    className="cursor-pointer bg-white rounded-lg shadow-2xl p-3 flex justify-center items-center"
                   >
-                    <p>{option}</p>
+                    <p className="text-black">{option}</p>
                   </div>
                 ))}
               </div>

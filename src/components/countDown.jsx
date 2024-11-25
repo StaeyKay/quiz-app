@@ -28,7 +28,7 @@ const CountdownProgressBar = ({ duration, onTimeUp }) => {
       <div
         style={{
           borderRadius: "25px",
-          width: "100%",
+          width: "70%",
           height: "15px",
           backgroundColor: "#ddd",
         }}
@@ -38,14 +38,21 @@ const CountdownProgressBar = ({ duration, onTimeUp }) => {
             width: `${progress}%`,
             height: "100%",
             backgroundColor: "green",
-            backgroundImage: "linear-gradient(to right, red, yellow)",
+            backgroundImage:
+              "linear-gradient(to right, #f6d807, #78f807, #71e2fa)",
             borderRadius: "25px",
             transition: "width 1s linear",
           }}
         ></div>
       </div>
       {/* Display the countdown time beneath the progress bar */}
-      <div style={{ marginTop: "8px", fontSize: "18px", color: "#333" }}>
+      <div
+        style={{
+          color: "white",
+          marginTop: "8px",
+          fontSize: "18px",
+        }}
+      >
         Time Left: {timeLeft}s
       </div>
     </div>
