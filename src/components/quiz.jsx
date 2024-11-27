@@ -3,6 +3,8 @@ import CountdownProgressBar from "./countDown";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getQuestions } from "@/utils";
 import { ColorRing } from "react-loader-spinner";
+import { IoMdArrowDropleft } from "react-icons/io";
+import { IoMdArrowDropright } from "react-icons/io";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -54,9 +56,13 @@ const Quiz = () => {
   }, [category]);
 
   return (
-    <div className="flex flex-col justify-center items-center space-y-8 text-white font-bold md:text-[35px] text-[20px] overflow-y-auto max-h-screen">
-      <div className="text-black text-center font-semibold pt-20 bg-white">
-        Category: {category.charAt(0).toUpperCase() + category.slice(1)}
+    <div className="flex flex-col justify-center items-center space-y-8 text-white font-bold md:text-[35px] text-[20px] overflow-hidden max-h-screen">
+      <div className="text-black flex items-center text-center font-semibold pt-20 bg-white">
+        Category{" "}
+        <span>
+          <IoMdArrowDropright size={40} className="text-[#e62e2d]" />
+        </span>{" "}
+        {category.charAt(0).toUpperCase() + category.slice(1)}
       </div>
       <div className="md:p-[60px] bg-gradient-to-r from-[#921919] to-[#e62e2d] p-[30px] shadow-2xl w-full">
         {loading ? (
@@ -75,8 +81,12 @@ const Quiz = () => {
           !quizCompleted &&
           questionList.length > 0 && (
             <div className="space-y-5">
-              <div className="text-white text-center">
-                Question {currentQuestion + 1}/{questionList.length}
+              <div className="text-white text-center flex gap-2 items-center justify-center">
+                <IoMdArrowDropleft size={40} className="text-[#ee5156]" />
+                <p>
+                  Question {currentQuestion + 1}/{questionList.length}
+                </p>
+                <IoMdArrowDropright size={40} className="text-[#ee5156]" />
               </div>
               <h2 className="text-[#f6d807] text-center">
                 {questionList[currentQuestion].question}
@@ -103,6 +113,13 @@ const Quiz = () => {
               onTimeUp={handleNextQuestion} // Move to next question when time is up
             />
           )}
+        </div>
+        <div className="flex justify-end items-end">
+          <span className="flex font-bold text-[20px]">
+            Graphic<span className="text-[#f6d807]">f</span>
+            <span className="text-[#78f807]">u</span>
+            <span className="text-[#71e2fa]">n &nbsp;</span> Quiz
+          </span>
         </div>
       </div>
     </div>

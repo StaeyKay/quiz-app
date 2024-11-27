@@ -16,10 +16,10 @@ const Welcome = () => {
 
   return (
     <div className="max-h-screen flex items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">
-      <div className="md:p-[60px] p-[30px] bg-gradient-to-r from-[#921919] to-[#e62e2d] shadow-2xl rounded-3xl max-w-[90vw]">
-        <div className="flex flex-col text-[35px]">
+      <div className="md:px-[150px] md:py-[60px] px-[50px] py-[30px] bg-gradient-to-r from-[#921919] to-[#e62e2d] shadow-2xl rounded-[50px] max-w-[90vw]">
+        <div className="flex flex-col text-[34px]">
           <span className="font-normal">Welcome to</span>
-          <span className="flex font-bold">
+          <span className="flex font-bold text-[42px]">
             Graphic<span className="text-[#f6d807]">f</span>
             <span className="text-[#78f807]">u</span>
             <span className="text-[#71e2fa]">n &nbsp;</span> Quiz
@@ -27,7 +27,7 @@ const Welcome = () => {
         </div>
 
         <form onSubmit={saveForm} className="space-y-5">
-          <label htmlFor="" className="block">
+          <label htmlFor="" className="block text-[24px]">
             Kindly enter a nickname to proceed
           </label>
           <div className="flex flex-col gap-5 justify-center">
@@ -39,8 +39,8 @@ const Welcome = () => {
               value={name}
               required
             />
-            <div className="flex justify-center items-center gap-2">
-              <p className="text-center flex items-center">
+            <div className="flex gap-2">
+              <p className="text-center flex items-center text-[24px]">
                 <IoMdArrowDropright size={25} className="text-[#ee5156]" />
                 Click continue to read the instructions
                 <IoMdArrowDropright size={25} className="text-[#ee5156]" />
