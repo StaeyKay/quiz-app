@@ -3,6 +3,7 @@ import { FaShareAlt } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { useNavigate, useLocation } from "react-router-dom";
 import PopoverComponent from "./popover";
+import { backgroundImage } from "@/assets";
 
 const Result = () => {
   const location = useLocation();
@@ -22,7 +23,7 @@ const Result = () => {
 
   return (
     <div className="max-h-screen flex items-center justify-center space-y-8 md:py-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">
-      <div className="md:py-[25px] p-[10px] font-semibold bg-gradient-to-r from-[#921919] to-[#e62e2d] shadow-2xl rounded-[50px] w-[70%]">
+      <div style={{backgroundImage: `url(${backgroundImage})`}} className="bg-cover bg-center md:py-[25px] p-[10px] font-semibold rounded-[80px] w-[70%]">
         <div className="space-y-10">
           <div>
             <span className="flex justify-center">

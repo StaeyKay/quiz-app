@@ -24,7 +24,7 @@ const Welcome = () => {
         <img
           src={emojis}
           alt="emojis"
-          className="absolute top-0 right-0 h-16 w-96"
+          className="absolute top-0 right-2 h-[500px] w-[500px]"
         />
         <div className="flex flex-col text-[34px]">
           <span className="font-normal">Welcome to</span>
