@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
+import { backgroundImage } from "@/assets";
 
 const Introduction = () => {
   const [name, setName] = useState("");
@@ -27,7 +28,10 @@ const Introduction = () => {
 
   return (
     <div className="max-h-screen flex items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white overflow-hidden w-full">
-      <div className="md:p-[60px] p-[30px] bg-gradient-to-r from-[#921919] to-[#e62e2d] shadow-2xl rounded-3xl max-w-[90vw]">
+      <div
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+        className="bg-cover bg-center md:p-[60px] p-[30px] rounded-[80px] max-w-[90vw]"
+      >
         <div className="space-y-5">
           <div className="flex gap-2 md:text-[35px] text-[20px]">
             <span>Welcome to</span>{" "}
@@ -47,7 +51,7 @@ const Introduction = () => {
               onChange={(e) => setCategory(e.target.value)}
               id="category"
               value={category}
-              className="mt-2 w-full p-2 border rounded-full text-black text-[30px] font-bold"
+              className="mt-2 w-full p-2 border rounded-full text-black text-[25px] font-bold"
               required
             >
               <option value="" disabled selected hidden>

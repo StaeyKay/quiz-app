@@ -1,3 +1,4 @@
+import { backgroundImage, emojis } from "@/assets";
 import React, { useState } from "react";
 import { IoMdArrowDropright } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +17,15 @@ const Welcome = () => {
 
   return (
     <div className="max-h-screen flex items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">
-      <div className="md:px-[150px] md:py-[60px] px-[50px] py-[30px] bg-gradient-to-r from-[#921919] to-[#e62e2d] shadow-2xl rounded-[50px] max-w-[90vw]">
+      <div
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+        className="relative bg-cover bg-center md:px-[150px] md:py-[60px] px-[50px] py-[30px] rounded-[80px] max-w-[100vw]"
+      >
+        <img
+          src={emojis}
+          alt="emojis"
+          className="absolute top-0 right-0 h-16 w-96"
+        />
         <div className="flex flex-col text-[34px]">
           <span className="font-normal">Welcome to</span>
           <span className="flex font-bold text-[42px]">

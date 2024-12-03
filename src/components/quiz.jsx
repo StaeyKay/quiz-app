@@ -5,6 +5,7 @@ import { getQuestions } from "@/utils";
 import { ColorRing } from "react-loader-spinner";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
+import { backgroundImage } from "@/assets";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -64,7 +65,12 @@ const Quiz = () => {
         </span>{" "}
         {category.charAt(0).toUpperCase() + category.slice(1)}
       </div>
-      <div className="md:p-[60px] bg-gradient-to-r from-[#921919] to-[#e62e2d] p-[30px] shadow-2xl w-full">
+      <div
+        style={{
+          backgroundImage: !loading ? `url(${backgroundImage})` : "none",
+        }}
+        className="bg-cover bg-center md:p-[60px] p-[30px] shadow-2xl w-full"
+      >
         {loading ? (
           <div className="flex justify-center items-center">
             <ColorRing
