@@ -23,7 +23,10 @@ const Result = () => {
 
   return (
     <div className="max-h-screen flex items-center justify-center space-y-8 md:py-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">
-      <div style={{backgroundImage: `url(${backgroundImage})`}} className="bg-cover bg-center md:py-[25px] p-[10px] font-semibold rounded-[80px] w-[70%]">
+      <div
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+        className="bg-cover bg-center md:py-[25px] p-[10px] font-semibold rounded-[80px] w-[70%]"
+      >
         <div className="space-y-10">
           <div>
             <span className="flex justify-center">

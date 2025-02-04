@@ -10,3 +10,21 @@ export async function getQuestions(category) {
   const response = await questionsResponse.json();
   return response;
 }
+
+// Starting a game with session management
+export async function StartGame(playerName) {
+  try {
+    const playerResponse = await fetch(`${BASE_URL}/players/start`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({ name: playerName }),
+    });
+    const response = await playerResponse.json();
+    return response;
+  } catch (error) {
+    console.error("Error starting game:", error);
+  }
+}
