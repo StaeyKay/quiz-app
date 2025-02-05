@@ -7,7 +7,6 @@ const Introduction = () => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const navigate = useNavigate();
-  console.log(category);
 
   useEffect(() => {
     const nickname = window.localStorage.getItem("nickname");
@@ -27,10 +26,11 @@ const Introduction = () => {
   };
 
   return (
-    <div className="max-h-screen flex items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white overflow-hidden w-full">
+    <div className="max-h-screen flex flex-col items-center justify-center space-y-14 md:p-48 p-10 bg-[#F8FAFC] text-white overflow-hidden w-full">
+      <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
       <div
         style={{ backgroundImage: `url(${backgroundImage})` }}
-        className="bg-cover bg-center md:p-[60px] p-[30px] rounded-[80px] max-w-[90vw]"
+        className="bg-center md:p-[60px] p-[30px] rounded-[80px] max-w-[90vw]"
       >
         <div className="space-y-5">
           <div className="flex gap-2 md:text-[35px] text-[20px]">
@@ -54,7 +54,7 @@ const Introduction = () => {
               className="mt-2 w-full p-2 border rounded-full text-black text-[25px] font-bold"
               required
             >
-              <option value="" disabled selected hidden>
+              <option value="" disabled hidden>
                 Select a category
               </option>
               <option value="entertainment">Entertainment</option>
@@ -84,6 +84,7 @@ const Introduction = () => {
           </div>
         </div>
       </div>
+      <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
     </div>
   );
 };

@@ -15,7 +15,6 @@ const Quiz = () => {
   const [questionList, setQuestionList] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
 
-  console.log("questionList:", questionList);
 
   const params = useParams();
   const navigate = useNavigate();
@@ -57,8 +56,9 @@ const Quiz = () => {
   }, [category]);
 
   return (
-    <div className="flex flex-col justify-center items-center space-y-8 text-white font-bold md:text-[35px] text-[20px] overflow-hidden max-h-screen">
-      <div className="text-black flex items-center text-center font-semibold pt-20 bg-white">
+    <div className="flex flex-col justify-center items-center space-y-4 text-white py-10 font-bold md:text-[35px] text-[20px] overflow-hidden max-h-screen">
+      <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
+      <div className="text-black flex items-center text-center font-semibold pt-5 bg-white">
         Category{" "}
         <span>
           <IoMdArrowDropright size={40} className="text-[#e62e2d]" />
@@ -69,7 +69,7 @@ const Quiz = () => {
         style={{
           backgroundImage: !loading ? `url(${backgroundImage})` : "none",
         }}
-        className="bg-cover bg-center md:p-[60px] p-[30px] shadow-2xl w-full"
+        className="bg-center md:p-[60px] p-[30px] shadow-2xl w-full"
       >
         {loading ? (
           <div className="flex justify-center items-center">
@@ -128,6 +128,7 @@ const Quiz = () => {
           </span>
         </div>
       </div>
+      <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
     </div>
   );
 };

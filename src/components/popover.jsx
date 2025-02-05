@@ -23,7 +23,7 @@ const PopoverComponent = () => {
   return (
     <div>
       <Popover>
-        <PopoverTrigger>
+        <PopoverTrigger asChild>
           <div>
             <button className="flex items-center justify-center h-[62px] gap-3 bg-[#231e20] border-[4px] border-white rounded-xl text-[15px] md:text-[25px] font-bold px-5 py-2">
               Share
