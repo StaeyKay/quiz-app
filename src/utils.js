@@ -35,3 +35,21 @@ export async function StartGame(playerName) {
     console.error("Error starting game:", error);
   }
 }
+
+// Function to store the player score
+export async function saveScore(score) {
+  try {
+    const scoreResponse = await fetch(`${BASE_URL}/score`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify(score)
+    });
+    const response = await scoreResponse.json();
+    return response;
+  } catch (error) {
+    console.log("error saving score:", error)
+  }
+}

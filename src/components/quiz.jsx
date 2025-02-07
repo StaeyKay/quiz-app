@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CountdownProgressBar from "./countDown";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
-import { getQuestions } from "@/utils";
+import { getQuestions, saveScore } from "@/utils";
 import { ColorRing } from "react-loader-spinner";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
@@ -21,20 +21,25 @@ const Quiz = () => {
   const location = useLocation();
   const category = params.category || location.state.category;
 
-  const handleOptionClick = (selectedOption) => {
-    if (selectedOption === questionList[currentQuestion].answer) {
-      setScore((prevScore) => prevScore + 1);
-    }
-    handleNextQuestion();
-  };
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = async (currentScore) => {
     if (currentQuestion < questionList.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setTimerKey((prevKey) => prevKey + 1); // Reset the timer
     } else {
       setQuizCompleted(true);
+      console.log("score:", currentScore)
+      await saveScore({score: currentScore, player})
     }
+  };
+
+  const handleOptionClick = (selectedOption) => {
+    if (selectedOption === questionList[currentQuestion].answer) {
+      let currentScore = score + 1;
+      setScore(currentScore);
+      handleNextQuestion(currentScore);
+    }
+    
   };
 
   useEffect(() => {
