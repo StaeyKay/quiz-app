@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { backgroundImage } from "@/assets";
+import { getPlayer } from "@/utils";
 
 const Introduction = () => {
   const [name, setName] = useState("");
@@ -9,13 +10,24 @@ const Introduction = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const nickname = window.localStorage.getItem("nickname");
-    if (!nickname) {
-      navigate("/"); // Redirect to the welcome page if nickname is missing
-    } else {
-      setName(nickname); // Set the name if it exists
-    }
-  }, [navigate]);
+    // const nickname = window.localStorage.getItem("nickname");
+    // if (!nickname) {
+    //   navigate("/"); // Redirect to the welcome page if nickname is missing
+    // } else {
+    //   setName(nickname); // Set the name if it exists
+    // }
+    const fetchName = async () => {
+      const playerId = window.localStorage.getItem("playerId")
+      if (playerId) {
+        const playerData = await getPlayer(playerId);
+        setName(playerData.name)
+      } else {
+        // navigate("/")
+      }
+      
+    };
+    fetchName();
+  }, []);
 
   const handleContinue = () => {
     if (!category) {

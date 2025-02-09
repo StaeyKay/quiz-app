@@ -1,4 +1,5 @@
 import { backgroundImage, emojis } from "@/assets";
+import { savePlayer } from "@/utils";
 import React, { useState } from "react";
 import { IoMdArrowDropright } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -7,13 +8,32 @@ const Welcome = () => {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
-  const saveForm = (e) => {
-    e.preventDefault();
-    if (name) {
-      window.localStorage.setItem("nickname", name); // Save nickname to local storage
-      navigate("/introduction"); // Navigate to introduction page
+  const saveForm = async (e) => {
+    try {
+      e.preventDefault();
+      // if (name) {
+      //   window.localStorage.setItem("nickname", name); // Save nickname to local storage
+      //   navigate("/introduction"); // Navigate to introduction page
+      // }
+      const playerData = {name}
+      const savedPlayer = await savePlayer(playerData);
+      console.log("savedPlayer:", savedPlayer)
+      console.log("savedPlayerId:", savedPlayer.player.id)
+      if (savedPlayer && savedPlayer.player.id) {
+        window.localStorage.setItem("playerID", savedPlayer.player.id) //Save player id
+        window.localStorage.setItem("nickname", name);
+        console.log("navigating to intro page")
+        navigate("/introduction"); // Navigate to introduction page
+      }
+      resetForm();
+    } catch (error) {
+      console.log(error)
     }
   };
+
+  const resetForm = () => {
+    setName("");
+  }
 
   return (
     <div className="max-h-screen flex flex-col items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">

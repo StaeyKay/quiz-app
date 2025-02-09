@@ -29,7 +29,10 @@ const Quiz = () => {
     } else {
       setQuizCompleted(true);
       console.log("score:", currentScore)
-      await saveScore({score: currentScore, player})
+
+      // Get the player ID from localStorage
+    const playerID = localStorage.getItem("playerID");
+      await saveScore({score: currentScore, playerId: playerID})
     }
   };
 
