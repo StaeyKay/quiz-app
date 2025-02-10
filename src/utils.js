@@ -1,11 +1,10 @@
-const BASE_URL = "http://localhost:5050/api/v1";
+const BASE_URL = "https://quiz-api-yk9k.onrender.com/api/v1";
 
 // Save session data in local storage
-export function saveSession(playerName){
-  const playerSession = JSON.stringify(playerName.session)
-  window.localStorage.setItem("DATABASE", playerSession)
+export function saveSession(playerName) {
+  const playerSession = JSON.stringify(playerName.session);
+  window.localStorage.setItem("DATABASE", playerSession);
 }
-
 
 // Get questions endpoint integration
 export async function getQuestions(category) {
@@ -24,8 +23,8 @@ export async function savePlayer(player) {
     method: "POST",
     body: JSON.stringify(player),
     headers: {
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   });
   const response = playerResponse.json();
   return response;
@@ -35,12 +34,11 @@ export async function savePlayer(player) {
 export async function getPlayer(playerId) {
   const playerResponse = await fetch(`${BASE_URL}/players/${playerId}`, {
     method: "GET",
-    headers: {}
+    headers: {},
   });
   const response = await playerResponse.json();
   return response;
 }
-
 
 // Starting a game with session management
 // export async function StartGame(playerName) {
@@ -61,19 +59,19 @@ export async function getPlayer(playerId) {
 // }
 
 // Function to store the player score
-export async function saveScore({score, playerId}) {
+export async function saveScore({ score, playerId }) {
   try {
     const scoreResponse = await fetch(`${BASE_URL}/score`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
 
-      body: JSON.stringify({score, playerId})
+      body: JSON.stringify({ score, playerId }),
     });
     const response = await scoreResponse.json();
     return response;
   } catch (error) {
-    console.log("error saving score:", error)
+    console.log("error saving score:", error);
   }
 }
