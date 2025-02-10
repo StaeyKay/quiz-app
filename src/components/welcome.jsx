@@ -15,25 +15,22 @@ const Welcome = () => {
       //   window.localStorage.setItem("nickname", name); // Save nickname to local storage
       //   navigate("/introduction"); // Navigate to introduction page
       // }
-      const playerData = {name}
+      const playerData = { name };
       const savedPlayer = await savePlayer(playerData);
-      console.log("savedPlayer:", savedPlayer)
-      console.log("savedPlayerId:", savedPlayer.player.id)
       if (savedPlayer && savedPlayer.player.id) {
-        window.localStorage.setItem("playerID", savedPlayer.player.id) //Save player id
-        window.localStorage.setItem("nickname", name);
-        console.log("navigating to intro page")
+        window.localStorage.setItem("playerID", savedPlayer.player.id); //Save player id
+        window.localStorage.setItem("nickname", savedPlayer.player.name);
         navigate("/introduction"); // Navigate to introduction page
       }
       resetForm();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   const resetForm = () => {
     setName("");
-  }
+  };
 
   return (
     <div className="max-h-screen flex flex-col items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">

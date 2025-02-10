@@ -15,12 +15,10 @@ const Quiz = () => {
   const [questionList, setQuestionList] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
 
-
   const params = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const category = params.category || location.state.category;
-
 
   const handleNextQuestion = async (currentScore) => {
     if (currentQuestion < questionList.length - 1) {
@@ -28,21 +26,21 @@ const Quiz = () => {
       setTimerKey((prevKey) => prevKey + 1); // Reset the timer
     } else {
       setQuizCompleted(true);
-      console.log("score:", currentScore)
+      console.log("score:", currentScore);
 
       // Get the player ID from localStorage
-    const playerID = localStorage.getItem("playerID");
-      await saveScore({score: currentScore, playerId: playerID})
+      const playerID = localStorage.getItem("playerID");
+      await saveScore({ score: currentScore, playerId: playerID });
     }
   };
 
   const handleOptionClick = (selectedOption) => {
+    let currentScore = score;
     if (selectedOption === questionList[currentQuestion].answer) {
       let currentScore = score + 1;
       setScore(currentScore);
-      handleNextQuestion(currentScore);
     }
-    
+    handleNextQuestion(currentScore);
   };
 
   useEffect(() => {

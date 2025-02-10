@@ -10,21 +10,14 @@ const Introduction = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // const nickname = window.localStorage.getItem("nickname");
-    // if (!nickname) {
-    //   navigate("/"); // Redirect to the welcome page if nickname is missing
-    // } else {
-    //   setName(nickname); // Set the name if it exists
-    // }
     const fetchName = async () => {
-      const playerId = window.localStorage.getItem("playerId")
+      const playerId = window.localStorage.getItem("playerID");
       if (playerId) {
         const playerData = await getPlayer(playerId);
-        setName(playerData.name)
+        setName(playerData.name);
       } else {
         // navigate("/")
       }
-      
     };
     fetchName();
   }, []);

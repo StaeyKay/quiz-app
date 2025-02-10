@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaShareAlt } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { useNavigate, useLocation } from "react-router-dom";
 import PopoverComponent from "./popover";
 import { backgroundImage } from "@/assets";
+import { getPlayer } from "@/utils";
 
 const Result = () => {
   const location = useLocation();
+  const [name, setName] = useState("");
   const { score, totalQuestions } = location.state || {
     score: 0,
     totalQuestions: 1,
   }; // default values in case state is missing
-  const nickname = window.localStorage.getItem("nickname");
+  // const nickname = window.localStorage.getItem("nickname");
+
+  useEffect(() => {
+    const fetchName = async () => {
+      const playerId = window.localStorage.getItem("playerID");
+      if (playerId) {
+        const playerData = await getPlayer(playerId);
+        setName(playerData.name);
+      } else {
+        // navigate("/")
+      }
+    };
+    fetchName();
+  }, []);
   const navigate = useNavigate();
 
   // Calculate the percentage
@@ -47,12 +62,12 @@ const Result = () => {
             {/* Conditional message based on percentage */}
             {percentageScore >= 60 ? (
               <p className="text-[#f6d807] text-[25px] text-center">
-                🎉 Congratulations, {nickname.toUpperCase()}! Great job, keep it
-                up! 🎉
+                🎉 Congratulations, {name.toUpperCase()}! Great job, keep it up!
+                🎉
               </p>
             ) : (
               <p className="text-[#f6d807] text-[25px] text-center">
-                👎 Don’t worry, {nickname.toUpperCase()}, try again! You can do
+                👎 Don’t worry, {name.toUpperCase()}, try again! You can do
                 better! 👎
               </p>
             )}
