@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5050/api/v1";
+const BASE_URL = "https://quiz-api-yk9k.onrender.com/api/v1";
 
 // Save session data in local storage
 export function saveSession(playerName) {
