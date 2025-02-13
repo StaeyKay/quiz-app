@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import CountdownProgressBar from "./countDown";
+import { useRef } from "react";
+import socket from "@/socket";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getQuestions, saveScore } from "@/utils";
 import { ColorRing } from "react-loader-spinner";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 import { backgroundImage } from "@/assets";
+
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -14,11 +17,13 @@ const Quiz = () => {
   const [timerKey, setTimerKey] = useState(0); // Reset the timer key
   const [questionList, setQuestionList] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
+  const [activePlayers, setActivePlayers] = useState(0);
 
   const params = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const category = params.category || location.state.category;
+  const socketRef = useRef(null);
 
   const handleNextQuestion = async (currentScore) => {
     if (currentQuestion < questionList.length - 1) {
@@ -61,9 +66,23 @@ const Quiz = () => {
     fetchQuestions();
   }, [category]);
 
+  useEffect(() => {
+    socket.connect();
+  
+    socket.on("Active players:", (count) => {
+      setActivePlayers(count);
+    });
+  
+    return () => {
+      socket.off("Active players:");
+      socket.disconnect();
+    };
+  }, []);
+
   return (
     <div className="flex flex-col justify-center items-center space-y-4 text-white py-10 font-bold md:text-[35px] text-[20px] overflow-hidden max-h-screen">
       <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
+      <p className="text-black">Active Players: {activePlayers}</p>
       <div className="text-black flex items-center text-center font-semibold pt-5 bg-white">
         Category{" "}
         <span>

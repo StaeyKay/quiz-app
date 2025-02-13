@@ -16,7 +16,6 @@ const Welcome = () => {
       //   navigate("/introduction"); // Navigate to introduction page
       // }
       const playerData = { name };
-      console.log("playerData:", playerData);
       const savedPlayer = await savePlayer(playerData);
       if (savedPlayer && savedPlayer.player.id) {
         window.localStorage.setItem("playerID", savedPlayer.player.id); //Save player id
