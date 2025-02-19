@@ -35,10 +35,10 @@ const Introduction = () => {
       <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
       <div
         style={{ backgroundImage: `url(${backgroundImage})` }}
-        className="bg-center md:p-[60px] p-[30px] rounded-[80px] max-w-[90vw]"
+        className="bg-center md:p-[60px] p-[30px] rounded-none md:rounded-[80px] w-[100vw] md:max-w-[70vw]"
       >
         <div className="space-y-5">
-          <div className="flex gap-2 md:text-[35px] text-[20px]">
+          <div className="flex gap-2 md:text-[35px] text-[17px]">
             <span>Welcome to</span>{" "}
             <span className="flex font-bold">
               Graphic<span className="text-[#f6d807]">f</span>

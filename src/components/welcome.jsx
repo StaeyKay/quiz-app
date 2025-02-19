@@ -11,10 +11,7 @@ const Welcome = () => {
   const saveForm = async (e) => {
     try {
       e.preventDefault();
-      // if (name) {
-      //   window.localStorage.setItem("nickname", name); // Save nickname to local storage
-      //   navigate("/introduction"); // Navigate to introduction page
-      // }
+      
       const playerData = { name };
       const savedPlayer = await savePlayer(playerData);
       if (savedPlayer && savedPlayer.player.id) {
@@ -37,12 +34,12 @@ const Welcome = () => {
       <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
       <div
         style={{ backgroundImage: `url(${backgroundImage})` }}
-        className="relative bg-center md:px-[150px] md:py-[60px] px-[50px] py-[30px] rounded-[80px] max-w-[100vw]"
+        className="relative bg-center md:px-[150px] md:py-[60px] px-[50px] py-[30px] rounded-none md:rounded-[80px] max-w-[100vw]"
       >
         <img
           src={emojis}
           alt="emojis"
-          className="absolute top-4 right-4 h-60 w-96"
+          className="absolute top-0 right-0 md:top-4 md:right-4 h-60 w-96"
         />
         <div className="flex flex-col text-[34px]">
           <span className="font-normal">Welcome to</span>
@@ -54,7 +51,7 @@ const Welcome = () => {
         </div>
 
         <form onSubmit={saveForm} className="space-y-5">
-          <label htmlFor="" className="block text-[24px]">
+          <label htmlFor="" className="block text-2xl">
             Kindly enter a nickname to proceed
           </label>
           <div className="flex flex-col gap-5 justify-center">
@@ -67,7 +64,7 @@ const Welcome = () => {
               required
             />
             <div className="flex gap-2">
-              <p className="text-center flex items-center text-[24px]">
+              <p className="text-center flex items-center text-base md:text-2xl">
                 <IoMdArrowDropright size={25} className="text-[#ee5156]" />
                 Click continue to read the instructions
                 <IoMdArrowDropright size={25} className="text-[#ee5156]" />
@@ -75,7 +72,7 @@ const Welcome = () => {
               </p>
               <button
                 type="submit"
-                className="bg-gradient-to-r from-[#a51e1d] to-[#600d0d] border-[2px] border-white text-white font-bold px-5 py-3 rounded-full md:w-auto"
+                className="bg-gradient-to-r from-[#a51e1d] to-[#600d0d] border-[2px] border-white text-white font-bold px-5 py-3 rounded-3xl md:rounded-full w-auto"
               >
                 Continue
               </button>

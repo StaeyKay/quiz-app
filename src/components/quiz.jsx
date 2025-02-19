@@ -35,14 +35,14 @@ const Quiz = () => {
 
       // Get the player ID from localStorage
       const playerID = localStorage.getItem("playerID");
-      await saveScore({ score: currentScore, playerId: playerID });
+      await saveScore({ score: currentScore, playerId: playerID, category });
     }
   };
 
   const handleOptionClick = (selectedOption) => {
     let currentScore = score;
     if (selectedOption === questionList[currentQuestion].answer) {
-      let currentScore = score + 1;
+      currentScore = score + 1;
       setScore(currentScore);
     }
     handleNextQuestion(currentScore);
@@ -80,10 +80,10 @@ const Quiz = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center space-y-4 text-white py-10 font-bold md:text-[35px] text-[20px] overflow-hidden max-h-screen">
+    <div className="h-[100vh] flex flex-col justify-center items-center space-y-2 md:space-y-4 text-white py-10 font-bold md:text-[35px] text-[20px] overflow-hidden">
       <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
-      <p className="text-black">Active Players: {activePlayers}</p>
-      <div className="text-black flex items-center text-center font-semibold pt-5 bg-white">
+      <p className="text-black text-xs md:text-base">Active Players: {activePlayers}</p>
+      <div className="text-black flex items-center text-center font-semibold bg-white">
         Category{" "}
         <span>
           <IoMdArrowDropright size={40} className="text-[#e62e2d]" />
@@ -119,7 +119,7 @@ const Quiz = () => {
                 </p>
                 <IoMdArrowDropright size={40} className="text-[#ee5156]" />
               </div>
-              <h2 className="text-[#f6d807] text-center">
+              <h2 className="text-[#f6d807] text-center md:text-[20px] text-[17px]">
                 {questionList[currentQuestion].question}
               </h2>
               <div className="grid grid-cols-2 gap-8">
@@ -129,7 +129,7 @@ const Quiz = () => {
                     onClick={() => handleOptionClick(option)}
                     className="cursor-pointer bg-white rounded-lg shadow-2xl p-3 flex justify-center items-center"
                   >
-                    <p className="text-black">{option}</p>
+                    <p className="text-black md:text-[20px] text-[15px]">{option}</p>
                   </div>
                 ))}
               </div>

@@ -1,4 +1,4 @@
-const BASE_URL = "https://quiz-api-yk9k.onrender.com/api/v1";
+const BASE_URL = "http://localhost:5050/api/v1";
 
 // Save session data in local storage
 export function saveSession(playerName) {
@@ -59,7 +59,7 @@ export async function getPlayer(playerId) {
 // }
 
 // Function to store the player score
-export async function saveScore({ score, playerId }) {
+export async function saveScore({ score, playerId, category }) {
   try {
     const scoreResponse = await fetch(`${BASE_URL}/score`, {
       method: "POST",
@@ -67,7 +67,7 @@ export async function saveScore({ score, playerId }) {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify({ score, playerId }),
+      body: JSON.stringify({ score, playerId, category }),
     });
     const response = await scoreResponse.json();
     return response;
