@@ -58,25 +58,25 @@ const PopoverComponent = () => {
           </div> */}
           <div className="flex justify-between">
             <FacebookShareButton
-              url={"http://localhost:5173/result"}
+              url={"https://graphicfunquiz.netlify.app/result"}
               title={"Check out my results from the GraphiFun quiz!"}
               hashtag="#react"
             >
               <FacebookIcon />
             </FacebookShareButton>
             <WhatsappShareButton
-              url={"http://localhost:5173/result"}
+              url={"https://graphicfunquiz.netlify.app/result"}
               title={"Check out my results from the GraphiFun quiz!"}
             >
               <WhatsappIcon />
             </WhatsappShareButton>
             <TwitterShareButton
-              url={"http://localhost:5173/result"}
+              url={"https://graphicfunquiz.netlify.app/result"}
               title={"Check out my results from the GraphiFun quiz!"}
             >
               <TwitterIcon />
             </TwitterShareButton>
-            <EmailShareButton url={"http://localhost:5173/result"}>
+            <EmailShareButton url={"https://graphicfunquiz.netlify.app/result"}>
               <EmailIcon />
             </EmailShareButton>
           </div>
