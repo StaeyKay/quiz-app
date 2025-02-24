@@ -32,30 +32,6 @@ const PopoverComponent = () => {
           </div>
         </PopoverTrigger>
         <PopoverContent>
-          {/* <div className="flex justify-between">
-            <a
-              href="https://www.facebook.com/sharer.php?u=https://example.com"
-              target="_blank"
-              className="text-blue-600"
-            >
-              <FaFacebook size={25} />
-            </a>
-            <a
-              class="twitter-share-button"
-              href="https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20content!&url=https://example.com&hashtags=AwesomeContent,TwitterShare"
-              target="_blank"
-              data-size="large"
-            >
-              <FaXTwitter size={25} />
-            </a>
-            <a
-              href="https://wa.me/?text=${encodeURIComponent(message)}"
-              target="_blank"
-              className="text-green-500"
-            >
-              <FaWhatsapp size={25} />
-            </a>
-          </div> */}
           <div className="flex justify-between">
             <FacebookShareButton
               url={"https://graphicfunquiz.netlify.app/result"}

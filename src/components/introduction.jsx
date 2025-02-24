@@ -62,11 +62,9 @@ const Introduction = () => {
               <option value="" disabled hidden>
                 Select a category
               </option>
-              <option value="entertainment">Entertainment</option>
               <option value="social studies">Social Studies</option>
               <option value="integrated science">Integrated Science</option>
               <option value="english language">English Language</option>
-              <option value="new">New</option>
             </select>
           </form>
           <div className="md:flex items-center text-[20px] gap-4">
