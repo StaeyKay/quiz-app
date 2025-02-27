@@ -17,7 +17,7 @@ const Result = () => {
 
   useEffect(() => {
     const fetchName = async () => {
-      const playerId = window.localStorage.getItem("playerID");
+      const playerId = window.sessionStorage.getItem("playerID");
       if (playerId) {
         const playerData = await getPlayer(playerId);
         setName(playerData.name);

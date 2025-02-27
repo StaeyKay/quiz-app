@@ -34,7 +34,7 @@ const Quiz = () => {
       console.log("score:", currentScore);
 
       // Get the player ID from localStorage
-      const playerID = localStorage.getItem("playerID");
+      const playerID = sessionStorage.getItem("playerID");
       await saveScore({ score: currentScore, playerId: playerID, category });
     }
   };

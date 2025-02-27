@@ -6,17 +6,20 @@ import { useNavigate } from "react-router-dom";
 
 const Welcome = () => {
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const saveForm = async (e) => {
+    e.preventDefault();
+      setLoading(true);
     try {
-      e.preventDefault();
+      
       
       const playerData = { name };
       const savedPlayer = await savePlayer(playerData);
       if (savedPlayer && savedPlayer.player.id) {
-        window.localStorage.setItem("playerID", savedPlayer.player.id); //Save player id
-        window.localStorage.setItem("nickname", savedPlayer.player.name);
+        window.sessionStorage.setItem("playerID", savedPlayer.player.id); //Save player id
+        window.sessionStorage.setItem("nickname", savedPlayer.player.name);
         navigate("/introduction"); // Navigate to introduction page
       }
       resetForm();
@@ -74,7 +77,7 @@ const Welcome = () => {
                 type="submit"
                 className="bg-gradient-to-r from-[#a51e1d] to-[#600d0d] border-[2px] border-white text-white font-bold px-5 py-3 rounded-3xl md:rounded-full w-auto"
               >
-                Continue
+                {loading ? "Loading..." : "Continue"} {/* Show loading text */}
               </button>
             </div>
           </div>
