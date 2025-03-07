@@ -3,7 +3,7 @@ import { FaShareAlt } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
 import { useNavigate, useLocation } from "react-router-dom";
 import PopoverComponent from "./popover";
-import { backgroundImage } from "@/assets";
+import { backgroundImage, greenBackground } from "@/assets";
 import { getPlayer } from "@/utils";
 
 const Result = () => {
@@ -40,7 +40,7 @@ const Result = () => {
     <div className="flex flex-col items-center justify-center space-y-8 py-14 md:py-48 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">
       <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
       <div
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: `url(${greenBackground})` }}
         className="bg-center md:py-[25px] p-[10px] font-semibold rounded-none md:rounded-[80px] max-w-full md:w-[70%]"
       >
         <div className="space-y-10">

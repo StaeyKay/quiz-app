@@ -7,7 +7,7 @@ import { getQuestions, saveScore } from "@/utils";
 import { ColorRing } from "react-loader-spinner";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
-import { backgroundImage } from "@/assets";
+import { backgroundImage, greenBackground } from "@/assets";
 
 
 const Quiz = () => {
@@ -92,7 +92,7 @@ const Quiz = () => {
       </div>
       <div
         style={{
-          backgroundImage: !loading ? `url(${backgroundImage})` : "none",
+          backgroundImage: !loading ? `url(${greenBackground})` : "none",
         }}
         className="bg-center md:p-[60px] p-[30px] shadow-2xl w-full"
       >

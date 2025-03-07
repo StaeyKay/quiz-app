@@ -1,4 +1,4 @@
-import { backgroundImage, emojis } from "@/assets";
+import { backgroundImage, emojis, greenBackground } from "@/assets";
 import { savePlayer } from "@/utils";
 import React, { useState } from "react";
 import { IoMdArrowDropright } from "react-icons/io";
@@ -36,7 +36,7 @@ const Welcome = () => {
     <div className="max-h-screen flex flex-col items-center justify-center space-y-8 md:p-48 p-10 bg-[#F8FAFC] text-white md:text-[35px] text-[20px] overflow-hidden w-full">
       <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
       <div
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: `url(${greenBackground})` }}
         className="relative bg-center md:px-[150px] md:py-[60px] px-[50px] py-[30px] rounded-none md:rounded-[80px] max-w-[100vw]"
       >
         <img

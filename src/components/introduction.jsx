@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
-import { backgroundImage } from "@/assets";
+import { backgroundImage, greenBackground } from "@/assets";
 import { getPlayer } from "@/utils";
 
 const Introduction = () => {
@@ -34,7 +34,7 @@ const Introduction = () => {
     <div className="max-h-screen flex flex-col items-center justify-center space-y-14 md:p-48 p-10 bg-[#F8FAFC] text-white overflow-hidden w-full">
       <div className="bg-red-400 p-2 rounded-2xl w-[50%]">Ads here</div>
       <div
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: `url(${greenBackground})` }}
         className="bg-center md:p-[60px] p-[30px] rounded-none md:rounded-[80px] w-[100vw] md:max-w-[70vw]"
       >
         <div className="space-y-5">
